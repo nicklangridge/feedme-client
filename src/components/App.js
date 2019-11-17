@@ -5,7 +5,9 @@ import {
   Switch
 } from "react-router-dom";
 
-import '../App.css';
+import 'skeleton-css/css/normalize.css';
+import 'skeleton-css/css/skeleton.css';
+
 import Albums from './Albums';
 import About from './About';
 import NotFound from './NotFound';
