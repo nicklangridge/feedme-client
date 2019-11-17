@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 import { getAlbums } from '../utils/API';
+import AlbumCards from '../components/AlbumCards';
 
 const PAGESIZE = 30;
 
@@ -73,13 +74,13 @@ class Albums extends Component {
     
     const hasAlbums = albums.length > 0;
     //const hasGenres = genres.length > 0;
-    //const hasMore = !atEnd && !isFetching;
+    const hasMore = !atEnd && !isFetching;
     
     console.log(albums);
     
     return (  
       <div> 
-        { hasAlbums ? <div>got albums: {albums.length} </div> : '' }
+        { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
         { isFetching ? <div>loading...</div> : '' }
         { atEnd ? <div>at end</div> : '' }
       </div>
