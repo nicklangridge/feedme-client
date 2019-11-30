@@ -79,10 +79,12 @@ class Albums extends Component {
     console.log(albums);
     
     return (  
-      <div> 
-        { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
-        { isFetching ? <div>loading...</div> : '' }
-        { atEnd ? <div>at end</div> : '' }
+      <div className="container">
+        <div> 
+          { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
+          { isFetching ? <div>loading...</div> : '' }
+          { atEnd ? <div>at end</div> : '' }
+        </div>
       </div>
     );
   }

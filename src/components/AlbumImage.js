@@ -15,10 +15,11 @@ class AlbumImage extends Component {
   
   render() {
     const {album} = this.props;  
-    const imageStyle = { backgroundImage: 'url(' + album.image + ')' };
     
     return (
-      <div className="album-image" style={ imageStyle } onClick={this.onClick}></div>
+      <figure className="image is-square album-image">
+        <img src={ album.image} alt="album art" />
+      </figure>
     );
   }
 }

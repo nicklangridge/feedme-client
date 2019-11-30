@@ -13,10 +13,10 @@ class AlbumCard extends Component {
       <span> <a href={ review.url } target="_blank" rel="noopener noreferrer">no preview available</a> </span>;
     
     return (
-      <li key={ key }>
-        <span className="feed-name">{ review.name }</span>&nbsp; 
+      <p key={ key }>
+        <span className="feed-name has-text-weight-semibold is-italic">{ review.name }</span>&nbsp; 
         { text }
-      </li>
+      </p>
     );
   }
   
@@ -24,35 +24,34 @@ class AlbumCard extends Component {
     const {album} = this.props;  
               
     return (
-      <div className="album-card" key={ album.album_id }>
-        <AlbumImage album={album} />
-        <div className="header">
-          <div className="album">
-            <a href={ album.album_uri }>{ album.album_name }</a>
+      <div className="section album">
+        <div className="album-card" key={ album.album_id }>
+          <div className="columns">
+            <div className="column is-one-third">
+              <AlbumImage album={album} />
+            </div>
+
+            <div className="column album-info">
+              <h2 className="title is-3"><a href={ album.album_uri }>{ album.album_name }</a></h2>
+              <h4 className="subtitle is-5"><a href={ album.artist_uri }>{ album.artist_name }</a></h4>
+              <p className="time-ago is-size-7 has-text-grey-light">Found <TimeAgo date={ album.created } /></p>
+              <div className="reviews">
+                { album.reviews.map(this.renderReview) }
+              </div>
+              <div className="tags are-medium">
+                  { 
+                    album.reviews.map((tag, i) => { 
+                      return (<span key={ i } className="tag feed"><Link to={ '/feed/' + tag.slug }>{ tag.name }</Link></span>)
+                    })
+                  }
+                  { 
+                    album.genres.filter(short).map((tag, i) => { 
+                      return (<span key={ i } className="tag genre"><Link to={ '/genre/' + tag.slug }>{ tag.name }</Link></span>)
+                    })
+                  }
+              </div>
+            </div>
           </div>
-          <div className="artist">
-            <a href={ album.artist_uri }>{ album.artist_name }</a>
-          </div>
-        </div>
-        <div className="reviews clearfix">
-          <ul>
-            { album.reviews.map(this.renderReview) }
-          </ul>
-        </div>
-        <div className="time-ago clearfix">Found <TimeAgo date={ album.created } /></div>
-        <div className="tags clearfix">
-          <ul>
-            { 
-              album.reviews.map((tag, i) => { 
-                return (<li key={ i } className="genre"><Link to={ '/feed/' + tag.slug }>{ tag.name }</Link></li>)
-              })
-            }
-            { 
-              album.genres.filter(short).map((tag, i) => { 
-                return (<li key={ i } className="genre"><Link to={ '/genre/' + tag.slug }>{ tag.name }</Link></li>)
-              })
-            }
-          </ul>
         </div>
       </div>
     );
