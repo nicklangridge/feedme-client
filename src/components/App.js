@@ -44,18 +44,16 @@ function App() {
 		</div>
 	</div>
 </nav>
-
-<div className="section">
-  <div className="container has-text-centered">
-    <h1 className="title is-1 has-text-weight-bold">Recent Albums</h1>
-  </div>
-</div>
       
       <div> 
         <Switch>
-          <Route exact path="/"      component={Albums} />
-          <Route exact path="/about" component={About} />
-          <Route path="*"            component={NotFound} />
+          <Route exact path="/"             component={Albums} />
+          <Route path="/feed/:feed"         component={Albums} />
+          <Route path="/genre/:genre"       component={Albums} />
+          <Route path="/category/:category" component={Albums} />
+          <Route path="/search/:keywords"   component={Albums} />
+          <Route exact path="/about"        component={About} />
+          <Route path="*"                   component={NotFound} />
         </Switch>
       </div>
    </Router>
@@ -63,7 +61,7 @@ function App() {
 }
 
 
- /*<Route path="/feed/:feed"         component={Albums} />
+ /*     <Route path="/feed/:feed"         component={Albums} />
         <Route path="/genre/:genre"       component={Albums} />
         <Route path="/category/:category" component={Albums} />
         <Route path="/search/:keywords"   component={Albums} />

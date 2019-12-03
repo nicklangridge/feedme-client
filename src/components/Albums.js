@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import update from 'immutability-helper';
 import { getAlbums } from '../utils/API';
 import AlbumCards from '../components/AlbumCards';
+import FilterBar from '../components/FilterBar';
+import Spinner from '../components/Spinner';
 
-const PAGESIZE = 30;
+const PAGESIZE = 10;
 
 class Albums extends Component {
 
@@ -26,9 +28,9 @@ class Albums extends Component {
     this.fetchAlbums(this.props);
   }
   
-//   componentWillReceiveProps(nextProps) {
-//     this.fetchAlbums(nextProps);
-//   }
+  componentWillReceiveProps(nextProps) {
+    this.fetchAlbums(nextProps);
+  }
   
   loadMore(page) {
     console.log('load more', page);
@@ -47,10 +49,10 @@ class Albums extends Component {
     const args = {
       offset: page * PAGESIZE,
       limit: PAGESIZE,
-      feeds: props.params ? props.params.feed : null,
-      genres: props.params ? props.params.genre : null,
-      category: props.params ? props.params.category : null,
-      keywords: props.params ? props.params.keywords : null,
+      feeds: props.match.params.feed,
+      genres: props.match.params.genre,
+      category: props.match.params.category,
+      keywords: props.match.params.keywords
     };
     
     return getAlbums(args).then(data => {
@@ -68,7 +70,7 @@ class Albums extends Component {
   }
 
   render() {
-    const { albums, isFetching, atEnd } = this.state;
+    const { albums, filters, isFetching, atEnd } = this.state;
     //const { albums, genres, filters, isFetching, atEnd } = this.state;
     //const { source, genre } = this.props.params;
     
@@ -80,9 +82,10 @@ class Albums extends Component {
     
     return (  
       <div className="container">
-        <div> 
+        <div>
+          { isFetching && !hasAlbums ? '' : <FilterBar filters={ filters } /> }
           { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
-          { isFetching ? <div>loading...</div> : '' }
+          { isFetching ? <Spinner /> : '' }
           { atEnd ? <div>at end</div> : '' }
         </div>
       </div>

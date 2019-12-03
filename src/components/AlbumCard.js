@@ -34,10 +34,10 @@ class AlbumCard extends Component {
             <div className="column album-info">
               <h2 className="title is-3"><a href={ album.album_uri }>{ album.album_name }</a></h2>
               <h4 className="subtitle is-5"><a href={ album.artist_uri }>{ album.artist_name }</a></h4>
-              <p className="time-ago is-size-7 has-text-grey-light">Found <TimeAgo date={ album.created } /></p>
               <div className="reviews">
                 { album.reviews.map(this.renderReview) }
               </div>
+              <p className="time-ago is-size-7">Found <TimeAgo date={ album.created } /></p>              
               <div className="tags are-medium">
                   { 
                     album.reviews.map((tag, i) => { 
