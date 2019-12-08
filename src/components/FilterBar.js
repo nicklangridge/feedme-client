@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const crumb = {
-  category: { name: 'Category', path: null },
-  genre:    { name: 'Genre', path: null },
-  feed:     { name: 'Feed', path: '/feeds' },
-  search:   { name: 'Search', path: null },
-}
+// const types = {
+//  category: { name: 'Category', path: null },
+//  genre:    { name: 'Genre', path: null },
+//  feed:     { name: 'Feed', path: '/feeds' },
+//  search:   { name: 'Search', path: null },
+// }
 
 class FilterBar extends Component {
   render() {
@@ -16,7 +16,7 @@ class FilterBar extends Component {
       <div className="section">
         <div className="container has-text-centered">
           <h1 className="title is-1 has-text-weight-bold">Recent albums</h1>
-          <p style={{'margin-top':'-0.5rem'}}>The latest Spotify albums and reviews from the best sites on the web</p>
+          <p style={{'marginTop':'-0.5rem'}}>The latest Spotify albums and reviews from the best sites on the web</p>
         </div>
       </div>
     );
@@ -27,8 +27,16 @@ class FilterBar extends Component {
     return (
       <div className="section">
         <div className="container has-text-centered">
-          <h1 className="title is-1 has-text-weight-bold" style={{'margin-bottom':0}}>{ name }</h1>
-          <p><Link to={'/'}>[x]</Link></p>
+          <h1 className="title is-1 has-text-weight-bold" style={{'marginBottom':'1rem'}}>
+            { type === 'search' ? `Search '${name}'` : name }
+          </h1>
+          <p>
+            <Link to={'/'}>
+              <span className="icon is-medium">
+                <i className="far fa-times-circle fa-lg"></i>
+              </span>
+            </Link>
+          </p>
         </div>
       </div>
     );

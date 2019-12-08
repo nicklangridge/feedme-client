@@ -40,6 +40,10 @@ function setClientRegion(region) {
   return _cacheSet('ClientRegion', region);
 }
 
+function getClientCountry(region) {
+  return getCountryName(region);
+}
+
 function _cacheSet(key, value) {
   return window.localStorage.setItem(key, value);
 }
@@ -53,5 +57,6 @@ export {
   getRegions, 
   getFeeds, 
   getClientRegion, 
-  setClientRegion, 
+  setClientRegion,
+  getClientCountry,
 };

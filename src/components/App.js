@@ -7,6 +7,7 @@ import {
 
 import '../styles/App.sass';
 
+import NavBar from './NavBar';
 import Albums from './Albums';
 import About from './About';
 import NotFound from './NotFound';
@@ -21,31 +22,8 @@ import NotFound from './NotFound';
 function App() {
   return (
     <Router>
-
+      <NavBar />
       
-<nav className="navbar is-fixed-top">
-	<div className="container">
-		<div className="navbar-brand">
-      <a className="navbar-item logo" href="/">
-        feedmemusic
-      </a>
-			<span className="navbar-burger burger" data-target="navMenu">
-				<span></span>
-				<span></span>
-				<span></span>
-			</span>
-		</div>
-		<div id="navMenu" className="navbar-menu">
-			<div className="navbar-end">
-				<a href="/" className="navbar-item">Home</a>
-				<a href="/" className="navbar-item">Feeds</a>
-				<a href="/" className="navbar-item">Categories</a>
-			</div>
-		</div>
-	</div>
-</nav>
-      
-      <div> 
         <Switch>
           <Route exact path="/"             component={Albums} />
           <Route path="/feed/:feed"         component={Albums} />
@@ -55,10 +33,12 @@ function App() {
           <Route exact path="/about"        component={About} />
           <Route path="*"                   component={NotFound} />
         </Switch>
-      </div>
-   </Router>
+      
+    </Router>
   );
 }
+
+// Sticky footer https://github.com/jgthms/bulma/issues/47
 
 
  /*     <Route path="/feed/:feed"         component={Albums} />

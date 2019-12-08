@@ -4,6 +4,8 @@ import { getAlbums } from '../utils/API';
 import AlbumCards from '../components/AlbumCards';
 import FilterBar from '../components/FilterBar';
 import Spinner from '../components/Spinner';
+import NoAlbums from './NoAlbums';
+import Footer from './Footer';
 
 const PAGESIZE = 10;
 
@@ -19,9 +21,10 @@ class Albums extends Component {
       offset: 0,
       atEnd: false, 
       filters: null,
+      page: 0,
     };
     
-//    this.loadMore = this.loadMore.bind(this);
+    this.loadMore = this.loadMore.bind(this);
   }
 
   componentDidMount() {
@@ -32,12 +35,12 @@ class Albums extends Component {
     this.fetchAlbums(nextProps);
   }
   
-  loadMore(page) {
-    console.log('load more', page);
-    this.fetchAlbums(this.props, page);
+  loadMore() {
+    this.fetchAlbums(this.props, true);
   }
   
-  fetchAlbums(props, page = 0) {
+  fetchAlbums(props, more = false) {
+    var page = more ? this.state.page + 1 : 0;
     
     this.setState({
       isFetching: true,
@@ -61,7 +64,8 @@ class Albums extends Component {
         albums: update(this.state.albums, {$push: data.albums}),
         genres: data.genres,
         atEnd: data.albums.length < PAGESIZE,
-        filters: data.filters
+        filters: data.filters,
+        page: page
       });
       
     }).catch(err => { 
@@ -81,13 +85,22 @@ class Albums extends Component {
     console.log(albums);
     
     return (  
-      <div className="container">
-        <div>
+      <div>
+        <div className="container">
           { isFetching && !hasAlbums ? '' : <FilterBar filters={ filters } /> }
           { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
           { isFetching ? <Spinner /> : '' }
-          { atEnd ? <div>at end</div> : '' }
+          { !isFetching && !hasAlbums ? <NoAlbums /> : '' }
+          { hasMore ?  
+            <div className="section">
+              <div className="container has-text-centered">
+                <span className="button" onClick={ this.loadMore }>feed me more >>></span>
+              </div> 
+            </div>
+            : '' 
+          }
         </div>
+        { isFetching ? '' : <Footer /> }
       </div>
     );
   }
