@@ -18,7 +18,12 @@ class AlbumImage extends Component {
     
     return (
       <figure className="image is-square album-image">
-        <img src={ album.image} alt="album art" />
+        <img src={ album.image} onClick={ this.onClick } alt="album art" />
+        <div className="overlay" onClick={ this.onClick } >
+          <span className="icon is-large">
+            <i className="fab fa-spotify fa-5x"></i>
+          </span>
+        </div>
       </figure>
     );
   }

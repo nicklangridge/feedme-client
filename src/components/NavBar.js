@@ -55,54 +55,54 @@ class NavBar extends Component {
     const activeMenu = this.state.activeMenu;
     
     return (
-       <nav className="navbar is-fixed-top">
-        <div className="container">
-          <div className="navbar-brand">
-            <Link className="navbar-item logo" to="/">
-              <span className="icon is-medium">
-                <i className="fas fa-record-vinyl fa-lg"></i>
+      <div>
+       <nav className="navbar is-fixed-top is-unselectable">
+         <div className="container">
+            <div className="navbar-brand">
+              <Link className="navbar-item logo" to="/">
+                <span className="icon is-medium">
+                  <i className="fas fa-record-vinyl fa-lg"></i>
+                </span>
+                <b>feed<span style={{paddingLeft:'3px'}}></span>me<span style={{paddingLeft:'3px'}}></span>music</b>
+              </Link>
+              <span className={`navbar-burger burger ${activeMenu ? 'is-active' : ''}`} data-target="navMenu" onClick={this.toggleMenu}>
+                <span></span>
+                <span></span>
+                <span></span>
               </span>
-              <b>feedmemusic</b>
-            </Link>
-            <span className={`navbar-burger burger ${activeMenu ? 'is-active' : ''}`} data-target="navMenu" onClick={this.toggleMenu}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navMenu" className={`navbar-menu ${activeMenu ? 'is-active' : ''}`}>
-            <div className="navbar-end">
-              <div className="navbar-item">
-                <Search toggleMenu={this.toggleMenu} />
-              </div>
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link" href="/">
-                  Categories
-                </a>
-                <div className="navbar-dropdown">
-                  { 
-                    categories.map((cat, i) => { 
-                      return (<Link className="navbar-item" key={`cat-${i}`} to={ '/category/' + cat[0] } onClick={this.toggleMenu}>{ cat[1] }</Link>)
-                    })
-                  }                  
+            </div>
+            <div id="navMenu" className={`navbar-menu ${activeMenu ? 'is-active' : ''}`}>
+              <div className="navbar-end">
+                <div className="navbar-item">
+                  <Search toggleMenu={this.toggleMenu} />
                 </div>
-              </div>
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link" href="/">
-                  Feeds
-                </a>
-                <div className="navbar-dropdownd">
-                  { 
-                    feeds.map((feed, i) => { 
-                      return (<Link className="navbar-item" key={`feed-${i}`}  to={ '/feed/' + feed[0] } onClick={this.toggleMenu}>{ feed[1] }</Link>)
-                    })
-                  }                  
+                <div className="columns is-centered">
+                  <div className="column">
+                    <div className="has-text-weight-semibold">Feeds</div>
+                    <div>
+                      { 
+                        feeds.map((feed, i) => { 
+                          return (<div key={`feed-${i}`}><Link to={ '/feed/' + feed[0] } onClick={this.toggleMenu}>{ feed[1] }</Link></div>)
+                        })
+                      }                  
+                    </div>
+                  </div>
+                  <div className="column">
+                    <div className="has-text-weight-semibold">Categories</div>
+                    <div>
+                      { 
+                        categories.map((cat, i) => { 
+                          return (<div key={`feed-${i}`}><Link key={`cat-${i}`} to={ '/category/' + cat[0] } onClick={this.toggleMenu}>{ cat[1] }</Link></div>)
+                        })
+                      }                  
+                    </div>   
+                  </div>  
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }

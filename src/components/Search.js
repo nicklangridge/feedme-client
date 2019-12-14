@@ -42,7 +42,7 @@ class Search extends Component {
       <form onSubmit={this.handleSubmit}>
         { this.renderRedirect() }
         <p className="control has-icons-left">
-          <input ref={queryInput => this._queryInput = queryInput} className="input" type="text" placeholder="Search" />
+          <input ref={queryInput => this._queryInput = queryInput} className="input" type="text" placeholder="Search albums and genres" />
           <span className="icon is-left">
             <i className="fas fa-search" aria-hidden="true" ></i>
           </span>

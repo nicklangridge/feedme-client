@@ -7,11 +7,11 @@ class NoAlbums extends Component {
         <div className="container has-text-centered no-albums">
           <p>
             <span className="icon is-large">
-              <i className="far fa-thumbs-down fa-3x"></i>
+              <i className="fas fa-record-vinyl fa-3x"></i>
             </span>
           </p>
           <p>
-            Sorry, not a sauasage
+            Sorry, no albums
           </p>
         </div>
       </div>

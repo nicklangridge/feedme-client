@@ -5,7 +5,7 @@ import {
   Switch
 } from "react-router-dom";
 
-import '../styles/App.sass';
+import '../App.sass';
 
 import NavBar from './NavBar';
 import Albums from './Albums';

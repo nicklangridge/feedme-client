@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
+import ScrollToTop from 'react-scroll-up';
 import { getAlbums } from '../utils/API';
 import AlbumCards from '../components/AlbumCards';
 import FilterBar from '../components/FilterBar';
 import Spinner from '../components/Spinner';
+import Genres from './Genres';
 import NoAlbums from './NoAlbums';
 import Footer from './Footer';
 
@@ -74,33 +76,39 @@ class Albums extends Component {
   }
 
   render() {
-    const { albums, filters, isFetching, atEnd } = this.state;
-    //const { albums, genres, filters, isFetching, atEnd } = this.state;
+    //const { albums, filters, isFetching, atEnd } = this.state;
+    const { albums, genres, filters, isFetching, atEnd } = this.state;
     //const { source, genre } = this.props.params;
     
     const hasAlbums = albums.length > 0;
-    //const hasGenres = genres.length > 0;
-    const hasMore = !atEnd && !isFetching;
+    const hasGenres = genres.length > 0;
+    const hasMore = !atEnd && hasAlbums;
     
     console.log(albums);
     
     return (  
       <div>
         <div className="container">
+          <ScrollToTop showUnder={200} style={{zIndex:10}}>
+            <span className="icon scroll-to-top">
+              <i className="far fa-arrow-alt-circle-up fa-2x"></i>
+            </span>    
+          </ScrollToTop>
           { isFetching && !hasAlbums ? '' : <FilterBar filters={ filters } /> }
-          { hasAlbums ? <AlbumCards albums={ albums } hasMore={ hasMore } loadMore={ this.loadMore } /> : '' }
+          { hasGenres ? <Genres genres={ genres } /> : '' }
+          { hasAlbums ? <AlbumCards albums={ albums } /> : '' }
           { isFetching ? <Spinner /> : '' }
           { !isFetching && !hasAlbums ? <NoAlbums /> : '' }
           { hasMore ?  
             <div className="section">
               <div className="container has-text-centered">
-                <span className="button" onClick={ this.loadMore }>feed me more >>></span>
+                <span className="button is-info" onClick={ this.loadMore }>feed me more...</span>
               </div> 
             </div>
             : '' 
           }
         </div>
-        { isFetching ? '' : <Footer /> }
+        { hasAlbums || !isFetching ? <Footer /> : '' }
       </div>
     );
   }
