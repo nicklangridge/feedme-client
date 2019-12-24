@@ -79,20 +79,20 @@ class NavBar extends Component {
                 <div className="columns is-centered">
                   <div className="column">
                     <div className="has-text-weight-semibold">Feeds</div>
-                    <div>
+                    <div className="tags are-medium">
                       { 
                         feeds.map((feed, i) => { 
-                          return (<div key={`feed-${i}`}><Link to={ '/feed/' + feed[0] } onClick={this.toggleMenu}>{ feed[1] }</Link></div>)
+                          return (<Link to={ '/feed/' + feed[0] } onClick={this.toggleMenu} key={`feed-${i}`} className="tag feed">{ feed[1] }</Link>)
                         })
                       }                  
                     </div>
                   </div>
                   <div className="column">
                     <div className="has-text-weight-semibold">Categories</div>
-                    <div>
+                    <div className="tags are-medium">
                       { 
                         categories.map((cat, i) => { 
-                          return (<div key={`feed-${i}`}><Link key={`cat-${i}`} to={ '/category/' + cat[0] } onClick={this.toggleMenu}>{ cat[1] }</Link></div>)
+                          return (<Link to={ '/category/' + cat[0] } onClick={this.toggleMenu} key={`cat-${i}`} className="tag cat">{ cat[1] }</Link>)
                         })
                       }                  
                     </div>   

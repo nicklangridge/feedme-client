@@ -8,13 +8,14 @@ $family-secondary: "Lato", sans-serif;
 $primary: #555;
 $info: #4FA7AE;
 $link: $primary;
-$link-hover: #000;
+$link-hover: #47969C;
 $scheme-main: #f5f5f5;
 $tag-background-color: #ddd;
+$tag-hover-background-color: #ccc;
 $body-background-color: $scheme-main;
 $navbar-background-color: $scheme-main;
-$footer-background-color: $scheme-main;
-$footer-color: #aaa;
+$footer-background-color: #ddd;
+$footer-color: #888;
 $widescreen: 1024px;
 $fullhd: 1024px;
 $navbar-breakpoint: 9999px; 
@@ -31,10 +32,12 @@ $navbar-breakpoint: 9999px;
 @import 'bulma/sass/components/level.sass';
 @import 'bulma/sass/layout/section.sass';
 @import 'bulma/sass/layout/footer.sass';
+@import 'bulma/sass/layout/hero.sass';
 @import 'bulma/sass/grid/columns.sass';
 @import "bulma/sass/form/_all.sass";
 
 .title, .subtitle, .tag
+  color: $primary;
   font-family: $family-secondary;
 
 .title
@@ -53,6 +56,20 @@ $navbar-breakpoint: 9999px;
     div
       margin-bottom: 0.25rem;
 
+.tag:hover 
+  background-color: $tag-hover-background-color;
+  
+.tags a:hover 
+    text-decoration: none;
+
+// About
+
+.about-button 
+  cursor: pointer;
+
+.about-button:hover 
+  color: $link-hover;
+  
 // Albums
 
 .album-info 
@@ -98,6 +115,55 @@ $navbar-breakpoint: 9999px;
     border-left: 0;
   .album-card .column
     padding: 1rem 1.5rem 0;
+
+// album title hover
+
+.album-info .title a
+  transition: .25s ease;  
+  
+.album-info .title a:after  
+  color: $link-hover;
+  font-family: 'FontAwesome';
+  content: " \f1bc";   
+  transition: .25s ease;
+  opacity: 0;
+  
+.album-info .title a:hover:after  
+  opacity: 1;
+
+// album subtitle hover
+
+.album-info .subtitle a
+  transition: .25s ease;  
+  
+.album-info .subtitle a:after  
+  color: $link-hover;
+  font-family: 'FontAwesome';
+  font-size: 18px;
+  content: " \f1bc";   
+  transition: .25s ease;
+  opacity: 0;
+  
+.album-info .subtitle a:hover:after  
+  opacity: 1;
+
+// album review hover  
+
+.reviews a
+  transition: .25s ease;
+
+.reviews a:hover
+  color: $primary;
+  background-color: #DCEDEF;
+  
+.reviews a:after
+  font-family: 'FontAwesome';
+  content: " \f08e";
+  transition: .25s ease;
+  opacity: 0; 
+
+.reviews a:hover:after  
+  opacity: 1;
   
 // Spinner
 
@@ -119,7 +185,10 @@ $navbar-breakpoint: 9999px;
 
 .footer p
   padding: 1rem 0;
-
+  
+.footer .column .is-narrow
+  padding-right: 0;
+  
 // 404
 
 .not-found p 

@@ -41,12 +41,12 @@ class AlbumCard extends Component {
               <div className="tags are-medium">
                   { 
                     album.reviews.map((tag, i) => { 
-                      return (<span key={ i } className="tag feed"><Link to={ '/feed/' + tag.slug }>{ tag.name }</Link></span>)
+                      return (<Link to={ '/feed/' + tag.slug } key={ i } className="tag feed">{ tag.name }</Link>)
                     })
                   }
                   { 
                     album.genres.filter(short).map((tag, i) => { 
-                      return (<span key={ i } className="tag genre"><Link to={ '/genre/' + tag.slug }>{ tag.name }</Link></span>)
+                      return (<Link to={ '/genre/' + tag.slug } key={ i } className="tag genre">{ tag.name }</Link>)
                     })
                   }
               </div>

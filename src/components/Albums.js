@@ -9,7 +9,7 @@ import Genres from './Genres';
 import NoAlbums from './NoAlbums';
 import Footer from './Footer';
 
-const PAGESIZE = 10;
+const PAGESIZE = 20;
 
 class Albums extends Component {
 

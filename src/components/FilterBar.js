@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollIntoView from 'react-scroll-into-view';
 
 // const types = {
 //  category: { name: 'Category', path: null },
@@ -16,7 +17,14 @@ class FilterBar extends Component {
       <div className="section">
         <div className="container has-text-centered">
           <h1 className="title is-1 has-text-weight-bold">Recent albums</h1>
-          <p style={{'marginTop':'-0.5rem'}}>The latest Spotify albums and reviews from the best sites on the web</p>
+          <p style={{'marginTop':'-0.5rem'}}>
+            The latest Spotify albums and reviews from the best sites on the web
+            <span className="icon">
+              <ScrollIntoView selector="#footer">
+                <div className="about-button"><i className="far fa-question-circle"></i></div>
+              </ScrollIntoView>
+            </span>
+          </p>
         </div>
       </div>
     );
@@ -33,7 +41,7 @@ class FilterBar extends Component {
           <p>
             <Link to={'/'}>
               <span className="icon is-medium">
-                <i className="far fa-times-circle fa-lg"></i>
+                <i className="far fa-times-circle fa-2x"></i>
               </span>
             </Link>
           </p>
