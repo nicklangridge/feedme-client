@@ -61,7 +61,7 @@ class NavBar extends Component {
             <div className="navbar-brand">
               <Link className="navbar-item logo" to="/">
                 <span className="icon is-medium">
-                  <i className="fas fa-record-vinyl fa-lg"></i>
+                  <i className="fas fa-dot-circle fa-lg"></i>
                 </span>
                 <b>feed<span style={{paddingLeft:'3px'}}></span>me<span style={{paddingLeft:'3px'}}></span>music</b>
               </Link>

@@ -11,7 +11,7 @@ function NotFound (){
           </span>
         </p>
         <p>
-          <h1 className="title is-1">uh oh</h1>
+          <div className="title is-1">uh oh</div>
         </p>
         <p>
           Whatever you're looking for isn't here...

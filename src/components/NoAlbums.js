@@ -7,7 +7,7 @@ class NoAlbums extends Component {
         <div className="container has-text-centered no-albums">
           <p>
             <span className="icon is-large">
-              <i className="fas fa-record-vinyl fa-3x"></i>
+              <i className="fas fa-dot-circle fa-3x"></i>
             </span>
           </p>
           <p>

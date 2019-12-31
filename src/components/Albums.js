@@ -105,7 +105,13 @@ class Albums extends Component {
                 <span className="button is-info" onClick={ this.loadMore }>feed me more...</span>
               </div> 
             </div>
-            : '' 
+            : hasAlbums ?
+            <div className="section">
+              <div className="container has-text-centered">
+                <p>That's the lot.</p>
+              </div> 
+            </div>
+            : ''
           }
         </div>
         { hasAlbums || !isFetching ? <Footer /> : '' }

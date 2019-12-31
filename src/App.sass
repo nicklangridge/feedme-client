@@ -16,9 +16,11 @@ $body-background-color: $scheme-main;
 $navbar-background-color: $scheme-main;
 $footer-background-color: #ddd;
 $footer-color: #888;
+$footer-padding: 0 1.5rem 6rem
 $widescreen: 1024px;
 $fullhd: 1024px;
 $navbar-breakpoint: 9999px; 
+$section-padding: 4rem 1.5rem;
 
 @import 'bulma/sass/utilities/_all.sass';
 @import 'bulma/sass/base/_all.sass';
@@ -111,11 +113,17 @@ $navbar-breakpoint: 9999px;
     padding: 0 1.5rem;
 
 +mobile
+  .album
+    border-bottom: #ccc 1px dashed;
   .album-info 
     border-left: 0;
   .album-card .column
     padding: 1rem 1.5rem 0;
 
++mobile
+  .album:first-child
+    padding-top: 1rem;    
+    
 // album title hover
 
 .album-info .title a
@@ -203,3 +211,16 @@ $navbar-breakpoint: 9999px;
   background-color: $scheme-main;
   border-radius: 50%;
   width: 30px;
+  height: 30px;
+
+.scroll-to-top:hover
+  color: $link-hover; 
+  
+// logo
+
+a.navbar-item.logo
+  transition: .25s ease;
+
+a.navbar-item.logo:hover
+  color: $link-hover; 
+  
