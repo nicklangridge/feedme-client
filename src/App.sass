@@ -17,8 +17,8 @@ $navbar-background-color: $scheme-main;
 $footer-background-color: #ddd;
 $footer-color: #888;
 $footer-padding: 0 1.5rem 6rem
-$widescreen: 1024px;
-$fullhd: 1024px;
+$widescreen-enabled: false
+$fullhd-enabled: false
 $navbar-breakpoint: 9999px; 
 $section-padding: 4rem 1.5rem;
 
@@ -79,10 +79,11 @@ $section-padding: 4rem 1.5rem;
   padding-bottom: 0.5rem;
 
 .album-image
-  border: #ccc 1px solid; 
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 
 .album-image img
+  //border: 1px #ccc solid;
   backface-visibility: hidden;
   transition: .25s ease;
   opacity: 1;
