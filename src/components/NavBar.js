@@ -6,6 +6,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
 
     this.state = {
       activeMenu: false,
@@ -15,6 +16,12 @@ class NavBar extends Component {
   toggleMenu() {
     this.setState({
       activeMenu: !this.state.activeMenu,
+    });
+  };
+  
+   closeMenu() {
+    this.setState({
+      activeMenu: false,
     });
   };
   
@@ -59,7 +66,7 @@ class NavBar extends Component {
        <nav className="navbar is-fixed-top is-unselectable">
          <div className="container">
             <div className="navbar-brand">
-              <Link className="navbar-item logo" to="/">
+              <Link className="navbar-item logo" to="/" onClick={this.closeMenu}>
                 <span className="icon is-medium">
                   <i className="fas fa-dot-circle fa-lg"></i>
                 </span>
@@ -82,7 +89,7 @@ class NavBar extends Component {
                     <div className="tags are-medium">
                       { 
                         feeds.map((feed, i) => { 
-                          return (<Link to={ '/feed/' + feed[0] } onClick={this.toggleMenu} key={`feed-${i}`} className="tag feed">{ feed[1] }</Link>)
+                          return (<Link to={ '/feed/' + feed[0] } onClick={this.closeMenu} key={`feed-${i}`} className="tag feed">{ feed[1] }</Link>)
                         })
                       }                  
                     </div>
@@ -92,7 +99,7 @@ class NavBar extends Component {
                     <div className="tags are-medium">
                       { 
                         categories.map((cat, i) => { 
-                          return (<Link to={ '/category/' + cat[0] } onClick={this.toggleMenu} key={`cat-${i}`} className="tag cat">{ cat[1] }</Link>)
+                          return (<Link to={ '/category/' + cat[0] } onClick={this.closeMenu} key={`cat-${i}`} className="tag cat">{ cat[1] }</Link>)
                         })
                       }                  
                     </div>   
