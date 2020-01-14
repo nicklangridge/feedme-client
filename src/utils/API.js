@@ -1,6 +1,6 @@
 import { getCountryName } from './countries';
 
-const apiBase = 'http://feedmemusic.io/api/v1';
+const apiBase = 'https://feedmemusic.io/api/v1';
 /* global fetch */
 
 function apiFetch(method, args = {}) {   
