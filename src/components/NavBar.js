@@ -47,6 +47,7 @@ class NavBar extends Component {
       ['drownedinsound', 'Drowned In Sound'],
       ['gigsoup', 'Gig Soup'],
       ['guardian', 'Guardian'],
+      ['invertedaudio', 'Inverted Audio'],
       ['loudandquiet', 'Loud and Quiet'],
       ['nme', 'NME'],
       ['pitchfork', 'Pitchfork'],
