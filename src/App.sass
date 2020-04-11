@@ -5,14 +5,19 @@
 $family-sans-serif: "Raleway", sans-serif;
 $family-primary: $family-sans-serif;
 $family-secondary: "Lato", sans-serif; 
-$primary: #555;
+$primary: #46555B;
 $info: #4FA7AE;
 $link: $primary;
 $link-hover: #47969C;
 $scheme-main: #f5f5f5;
-$tag-background-color: #ddd;
-$tag-hover-background-color: #ccc;
+$tag-background-color: #D5DFE0;
+$tag-hover-background-color: #C2CBCC;
+$feed-background-color: #EFDBB6;
+$feed-hover-background-color: #DAC8A6;
+$body-color: $primary;
 $body-background-color: $scheme-main;
+$navbar-color: $primary;
+$navbar-link: $primary;
 $navbar-background-color: $scheme-main;
 $footer-background-color: #ddd;
 $footer-color: #888;
@@ -74,7 +79,15 @@ $navbar-item-hover-background-color: #E9E9E9
 
 .tags a:hover 
   text-decoration: none;
+  
+.tags .feed 
+  background-color: $feed-background-color;
 
+.tags .feed:hover 
+  background-color: $feed-hover-background-color;
+
+  
+  
 // About
 
 .about-button 
@@ -232,6 +245,7 @@ $navbar-item-hover-background-color: #E9E9E9
 
 +desktop
   a.navbar-item.logo
+    color: $navbar-link;
     transition: .25s ease;
   a.navbar-item.logo:hover
     background-color: $navbar-item-hover-background-color; 
