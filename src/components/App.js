@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import Analytics from 'react-router-ga';
 
 import '../App.sass';
 
@@ -14,16 +15,18 @@ import NotFound from './NotFound';
 function App() {
   return (
     <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/"             component={Albums} />
-        <Route path="/feed/:feed"         component={Albums} />
-        <Route path="/genre/:genre"       component={Albums} />
-        <Route path="/category/:category" component={Albums} />
-        <Route path="/search/:keywords"   component={Albums} />
-        <Route path="*"                   component={NotFound} />
-      </Switch>      
-    </Router>
+      <Analytics id="my-ga-tracking-id">
+        <NavBar />
+        <Switch>
+          <Route exact path="/"             component={Albums} />
+          <Route path="/feed/:feed"         component={Albums} />
+          <Route path="/genre/:genre"       component={Albums} />
+          <Route path="/category/:category" component={Albums} />
+          <Route path="/search/:keywords"   component={Albums} />
+          <Route path="*"                   component={NotFound} />
+        </Switch>      
+       </Analytics>
+     </Router>
   );
 }
       
