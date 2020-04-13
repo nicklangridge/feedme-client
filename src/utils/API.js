@@ -6,7 +6,7 @@ const apiBase = 'https://feedmemusic.io/api/v1';
 function apiFetch(method, args = {}) {   
   const query = Object.keys(args).map(key => key + '=' + encodeURIComponent(args[key] || '')).join('&');  
   const url   = apiBase + `/${method}?${query}`;
-  console.log('apiFetch', url, method, args); 
+  //console.log('apiFetch', url, method, args); 
   return fetch(url).then(response => response.json());
 }
 

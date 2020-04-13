@@ -84,7 +84,7 @@ class Albums extends Component {
     const hasGenres = genres.length > 0;
     const hasMore = !atEnd && hasAlbums;
     
-    console.log(albums);
+    //console.log(albums);
     
     return (  
       <div>
