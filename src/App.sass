@@ -8,12 +8,18 @@ $family-secondary: "Lato", sans-serif;
 $primary: #46555B;
 $info: #4FA7AE;
 $link: $primary;
-$link-hover: #47969C;
+$link-hover: $info;
 $scheme-main: #f5f5f5;
-$tag-background-color: #D5DFE0;
-$tag-hover-background-color: #C2CBCC;
-$feed-background-color: #EFDBB6;
-$feed-hover-background-color: #DAC8A6;
+
+$tag-background-color: #C2CBCC;
+$tag-hover-background-color: #B1B9BA;
+
+$feed-color: #F3F5F5;
+$feed-background-color: #626E72; 
+$feed-hover-background-color: #515E62;
+
+$review-background-hover: none;
+
 $body-color: $primary;
 $body-background-color: $scheme-main;
 $navbar-color: $primary;
@@ -81,6 +87,7 @@ $navbar-item-hover-background-color: #E9E9E9
   text-decoration: none;
   
 .tags .feed 
+  color: $feed-color;
   background-color: $feed-background-color;
 
 .tags .feed:hover 
@@ -183,7 +190,7 @@ $navbar-item-hover-background-color: #E9E9E9
     transition: .25s ease;
   .reviews a:hover
     color: $primary;
-    background-color: #DCEDEF;
+    background-color: $review-background-hover;
   .reviews a:after
     font-family: 'FontAwesome';
     content: " \f08e";
