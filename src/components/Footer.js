@@ -50,7 +50,7 @@ class Footer extends Component {
                       </span>
                     </div>
                     <div className="column">
-                      <a href="https://github.com/nicklangridge/feedme-client">Get the code on GitHub</a>
+                      <a href="https://github.com/nicklangridge/feedme">Get the code on GitHub</a>
                     </div>
                   </div>
                 </div>
