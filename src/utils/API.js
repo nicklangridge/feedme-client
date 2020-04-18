@@ -1,5 +1,3 @@
-import { getCountryName } from './countries';
-
 const apiBase = 'https://feedmemusic.io/api/v1';
 /* global fetch */
 
@@ -20,28 +18,12 @@ function getAlbums(args) {
   });
 }
 
-function getRegions() {
-  return apiFetch('regions').then(regions => {
-    return Promise.resolve(
-      regions.sort( (a, b) => getCountryName(a).localeCompare(getCountryName(b)) )
-    );
-  });
-}
-
-function getFeeds() {
-  return apiFetch('feeds');
-}
-
 function getClientRegion() {
   return _cacheGet('ClientRegion');
 }
 
 function setClientRegion(region) {
   return _cacheSet('ClientRegion', region);
-}
-
-function getClientCountry(region) {
-  return getCountryName(region);
 }
 
 function _cacheSet(key, value) {
@@ -54,9 +36,6 @@ function _cacheGet(key) {
 
 export { 
   getAlbums, 
-  getRegions, 
-  getFeeds, 
   getClientRegion, 
   setClientRegion,
-  getClientCountry,
 };
