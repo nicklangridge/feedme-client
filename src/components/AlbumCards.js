@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import AlbumCard from '../components/AlbumCard';
 
 class AlbumCards extends Component {
+
+  renderTitle() {  
+    return (
+      <div className="container has-text-centered">
+        <p class="title is-6">ALBUMS</p>
+      </div>
+    );
+  }
+  
   render() {
     //const {albums, hasMore, loadMore} = this.props;
-    const {albums} = this.props;
+    const { albums, withTitle } = this.props;
      
 //     const pairs = albums.reduce(function(result, value, index, array) {
 //       if (index % 2 === 0) result.push(array.slice(index, index + 2));
@@ -30,6 +39,7 @@ class AlbumCards extends Component {
     
     return (
       <div className="album-cards">
+          { withTitle ? this.renderTitle() : '' }
           { cards }
       </div>
     );

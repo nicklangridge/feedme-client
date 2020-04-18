@@ -96,7 +96,7 @@ class Albums extends Component {
           </ScrollToTop>
           { isFetching && !hasAlbums ? '' : <FilterBar filters={ filters } /> }
           { hasGenres ? <Genres genres={ genres } /> : '' }
-          { hasAlbums ? <AlbumCards albums={ albums } /> : '' }
+          { hasAlbums ? <AlbumCards albums={ albums } withTitle={ hasGenres } /> : '' }
           { isFetching ? <Spinner /> : '' }
           { !isFetching && !hasAlbums ? <NoAlbums /> : '' }
           { hasMore ?  

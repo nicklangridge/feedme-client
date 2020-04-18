@@ -12,7 +12,7 @@ class Genres extends Component {
           <div className="tags are-medium" style={{justifyContent: 'center'}}>
             { 
               genres.map((tag, i) => { 
-                return (<span key={ i } className="tag feed"><Link to={ '/genre/' + tag.slug }>{ tag.name }</Link></span>)
+                return (<Link key={ i } className="tag feed" to={ '/genre/' + tag.slug }>{ tag.name }</Link>)
               })
             }
           </div>
