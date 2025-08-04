@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This is an archived repo, it has been superseded by the `feedme-ui` repo
+
 ![Feed Me Music](feedmemusic.png)
 
 The latest music album reviews for Spotify listeners, gathered together from the best review sites on the web.
